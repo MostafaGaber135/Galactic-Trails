@@ -137,16 +137,21 @@ class PlanetDetailViewState extends State<PlanetDetailView> {
             ),
           ),
         ),
-        if (isExpanded) ...[
-          const SizedBox(height: 16),
-          Text(
-            getAdditionalInfo(widget.planet.title),
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.white60,
-            ),
+        Visibility(
+          visible: isExpanded,
+          child: Column(
+            children: [
+              const SizedBox(height: 16),
+              Text(
+                getAdditionalInfo(widget.planet.title),
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.white60,
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ],
     );
   }

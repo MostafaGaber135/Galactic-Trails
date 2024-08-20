@@ -39,69 +39,67 @@ class _HomeViewState extends State<HomeView> {
       },
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        body: SafeArea(
-          child: Stack(
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/images/solar_system.png',
+        body: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/images/solar_system.png',
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned.fill(
+              child: SingleChildScrollView(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 40,
                     ),
-                    fit: BoxFit.cover,
-                  ),
+                    const Text(
+                      'Space travel!',
+                      style: TextStyle(
+                        fontSize: 30,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.3),
+                        ),
+                      ),
+                      child: TextField(
+                        controller: searchController,
+                        decoration: const InputDecoration(
+                          hintText: 'Search',
+                          labelStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                          prefixIcon: Icon(Icons.search),
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.7,
+                      child: PlanetInfoCardGridView(searchQuery: searchQuery),
+                    ),
+                  ],
                 ),
               ),
-              Positioned.fill(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).viewInsets.bottom),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      const Text(
-                        'Space travel!',
-                        style: TextStyle(
-                          fontSize: 30,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(8.0),
-                          border: Border.all(
-                            color: Colors.grey.withOpacity(0.3),
-                          ),
-                        ),
-                        child: TextField(
-                          controller: searchController,
-                          decoration: const InputDecoration(
-                            hintText: 'Search',
-                            labelStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            prefixIcon: Icon(Icons.search),
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.7,
-                        child: PlanetInfoCardGridView(searchQuery: searchQuery),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
