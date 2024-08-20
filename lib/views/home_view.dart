@@ -61,32 +61,43 @@ class _HomeViewState extends State<HomeView> {
                     const SizedBox(
                       height: 40,
                     ),
-                    const Text(
-                      'Space travel!',
-                      style: TextStyle(
-                        fontSize: 30,
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 32,
+                      ),
+                      child: Text(
+                        'Space travel!',
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
                       ),
                     ),
                     const SizedBox(
                       height: 40,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(
-                          color: Colors.grey.withOpacity(0.3),
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
                       ),
-                      child: TextField(
-                        controller: searchController,
-                        decoration: const InputDecoration(
-                          hintText: 'Search',
-                          labelStyle: TextStyle(
-                            color: Colors.white,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(8.0),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(0.3),
                           ),
-                          prefixIcon: Icon(Icons.search),
-                          border: InputBorder.none,
+                        ),
+                        child: TextField(
+                          controller: searchController,
+                          decoration: const InputDecoration(
+                            hintText: 'Search',
+                            labelStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                            prefixIcon: Icon(Icons.search),
+                            border: InputBorder.none,
+                          ),
                         ),
                       ),
                     ),
